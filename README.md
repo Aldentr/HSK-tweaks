@@ -2,9 +2,9 @@
 HSK tweaks for personal use
 
 Core_SK_Patch:
-1. Patch chances to instant destroy ammo while looting to 0  + modificator from difficulty (default: 0.09 + mod. from dif.).
-2. Patch chances to instant destroy item (weapon) while looting to 0  + modificator from difficulty (default: 0.04 + mod. from dif.).
-3. Patch chances to damage looted item by deterioration to 0  + modificator from difficulty (default: 0.25 + mod. from dif.).
+1. Patch chances to instant destroy ammo while looting to "0  + modificator from difficulty" (default: 0.09 + mod. from dif.).
+2. Patch chances to instant destroy item (weapon) while looting to "0  + modificator from difficulty" (default: 0.04 + mod. from dif.).
+3. Patch chances to damage looted item by deterioration to "0  + modificator from difficulty" (default: 0.25 + mod. from dif.).
 4. Change all lighting power consumption (4-14 W depending on lightning type).
 
 Roads_of_the_Rim_HSK_Patch (you need "Roads of the Rim" mod from Steam for this file to work [https://steamcommunity.com/sharedfiles/filedetails/?id=1613783924&searchtext=roads]):
