@@ -35,7 +35,6 @@
 				</value>
 			</li>
 
-
 			<!-- Patch building cost and stats for RCDogfish -->
 			<li Class="PatchOperationInsert">
 				<xpath>Defs/ThingDef[defName = "RCDogfish"]/statBases</xpath>
@@ -330,5 +329,363 @@
 
 		</operations>
 	</Operation>
-  
+
+	<!-- SRTS Expanded for HSK Patching-->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+		
+			<!-- Checking for SRTS Expanded -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>SRTS Expanded</li>
+				</mods>
+			</li>
+
+			<!-- Patch research prerequisites for SRAF and SRTSMkII -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ResearchProjectDef[defName = "Research_SRAF"]/prerequisites</xpath>
+				<value>
+					<prerequisites>
+						<li>Research_SRTSSuperpod</li>
+					</prerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ResearchProjectDef[defName = "Research_SRTSMkII"]/prerequisites</xpath>
+				<value>
+					<prerequisites>
+						<li>Research_SRTSSkip</li>
+					</prerequisites>
+				</value>
+			</li>
+			
+
+			<!-- Do changes according to the "SRTS Expanded: RotorCraft" mod presence -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>SRTS Expanded: RotorCraft</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Normal</success>
+					<operations>
+					
+					<!-- Patch research prerequisites -->
+		
+						<!-- Patch research prerequisites for SRTS Mk.I: Skip -->
+						<li Class="PatchOperationAdd">
+							<xpath>Defs/ResearchProjectDef[defName = "Research_SRTSSkip"]/prerequisites</xpath>
+							<value>
+								<li>Research_WeaponisedRotor</li>
+							</value>
+						</li>
+
+						<!-- Patch research prerequisites for SRAF Canary -->
+						<li Class="PatchOperationAdd">
+							<xpath>Defs/ResearchProjectDef[defName = "Research_SRAF"]/prerequisites</xpath>
+							<value>
+								<li>Research_AdvanceRotor</li>
+							</value>
+						</li>
+						
+						<!-- Patch research prerequisites for SRTS Mk.II: Albatross -->
+						<li Class="PatchOperationAdd">
+							<xpath>Defs/ResearchProjectDef[defName = "Research_SRTSMkII"]/prerequisites</xpath>
+							<value>
+								<li>Research_GunshipWeaponsRotor</li>
+							</value>
+						</li>
+						
+						<!-- Patch research prerequisites for SRTS Mk.III: Phoenix -->
+						<li Class="PatchOperationAdd">
+							<xpath>Defs/ResearchProjectDef[defName = "Research_SRTSMkIII"]/prerequisites</xpath>
+							<value>
+								<li>Research_AssaultWeaponsRotor</li>
+							</value>
+						</li>
+						
+						<!-- Patch research prerequisites for SRTS Mk.IIIp: Pelican -->
+						<li Class="PatchOperationAdd">
+							<xpath>Defs/ResearchProjectDef[defName = "Research_SRTSMkIIIp"]/prerequisites</xpath>
+							<value>
+								<li>Research_MassiveRotor</li>
+							</value>
+						</li>
+
+					</operations>
+				</match>
+		
+			</li>
+
+			<!-- Patch building cost and stats for Superpod -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "SRTSSuperpod"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>240</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSSuperpod"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<ComponentIndustrial>12</ComponentIndustrial>
+						<ComponentAdvanced>6</ComponentAdvanced>
+						<Mechanism>6</Mechanism>
+						<AdvMechanism>8</AdvMechanism>
+						<ElectronicComponents>2</ElectronicComponents>
+						<Electronics>2</Electronics>
+						<ReinforcedGlass>10</ReinforcedGlass>
+						<Plastic>10</Plastic>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSSuperpod"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+			
+			<!-- Patch building cost and stats for SRTS Mk.I: Skip -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "SRTSSkip"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>240</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSSkip"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<ComponentIndustrial>8</ComponentIndustrial>
+						<ComponentAdvanced>8</ComponentAdvanced>
+						<Mechanism>6</Mechanism>
+						<AdvMechanism>10</AdvMechanism>
+						<ElectronicComponents>2</ElectronicComponents>
+						<Electronics>4</Electronics>
+						<ReinforcedGlass>15</ReinforcedGlass>
+						<Plastic>10</Plastic>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSSkip"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+			<!-- Patch building cost and stats for SRAF: Canary -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "SRAF"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>400</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRAF"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<ComponentIndustrial>8</ComponentIndustrial>
+						<ComponentAdvanced>10</ComponentAdvanced>
+						<Mechanism>8</Mechanism>
+						<AdvMechanism>12</AdvMechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Electronics>4</Electronics>
+						<ReinforcedGlass>20</ReinforcedGlass>
+						<Plastic>20</Plastic>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRAF"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+			
+			<!-- Patch building cost and stats for SRAF: TEK-7 -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "SRAFTek"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>540</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRAFTek"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<ComponentIndustrial>8</ComponentIndustrial>
+						<ComponentAdvanced>16</ComponentAdvanced>
+						<ComponentSpacer>8</ComponentSpacer>
+						<Mechanism>10</Mechanism>
+						<AdvMechanism>14</AdvMechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Electronics>6</Electronics>
+						<Microchips>4</Microchips>
+						<ReinforcedGlass>20</ReinforcedGlass>
+						<Plastic>25</Plastic>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRAFTek"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+			
+			<!-- Patch building cost and stats for SRTS Mk.II: Albatross -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "SRTSMkII"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>280</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSMkII"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<ComponentIndustrial>10</ComponentIndustrial>
+						<ComponentAdvanced>10</ComponentAdvanced>
+						<ComponentSpacer>6</ComponentSpacer>
+						<Mechanism>10</Mechanism>
+						<AdvMechanism>10</AdvMechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Electronics>4</Electronics>
+						<Microchips>4</Microchips>
+						<ReinforcedGlass>15</ReinforcedGlass>
+						<Plastic>25</Plastic>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSMkII"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+			
+			<!-- Patch building cost and stats for SRTS Mk.III: Phoenix -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "SRTSMkIII"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>320</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSMkIII"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<ComponentIndustrial>10</ComponentIndustrial>
+						<ComponentAdvanced>12</ComponentAdvanced>
+						<ComponentSpacer>10</ComponentSpacer>
+						<Mechanism>12</Mechanism>
+						<AdvMechanism>10</AdvMechanism>
+						<ElectronicComponents>6</ElectronicComponents>
+						<Electronics>6</Electronics>
+						<Microchips>4</Microchips>
+						<ReinforcedGlass>25</ReinforcedGlass>
+						<Plastic>30</Plastic>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSMkIII"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+			
+			<!-- Patch building cost and stats for SRTS Mk.IIIp: Pelican -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "SRTSMkIIIp"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>620</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSMkIIIp"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<ComponentIndustrial>14</ComponentIndustrial>
+						<ComponentAdvanced>14</ComponentAdvanced>
+						<ComponentSpacer>16</ComponentSpacer>
+						<Mechanism>14</Mechanism>
+						<AdvMechanism>16</AdvMechanism>
+						<ElectronicComponents>6</ElectronicComponents>
+						<Electronics>6</Electronics>
+						<Microchips>8</Microchips>
+						<ReinforcedGlass>30</ReinforcedGlass>
+						<Plastic>35</Plastic>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSMkIIIp"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+			
+			<!-- Patch building cost and stats for SRTS Mk.IV: Genesis -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "SRTSMkIV"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>1000</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSMkIV"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<ComponentIndustrial>20</ComponentIndustrial>
+						<ComponentAdvanced>16</ComponentAdvanced>
+						<ComponentSpacer>26</ComponentSpacer>
+						<Mechanism>20</Mechanism>
+						<AdvMechanism>30</AdvMechanism>
+						<ElectronicComponents>8</ElectronicComponents>
+						<Electronics>8</Electronics>
+						<Microchips>10</Microchips>
+						<ReinforcedGlass>60</ReinforcedGlass>
+						<Plastic>50</Plastic>
+						<AIPersonaCore>3</AIPersonaCore>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "SRTSMkIV"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+		</operations>
+	</Operation>
+	
 </Patch>
