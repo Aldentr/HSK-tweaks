@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- SRTS Expanded: RotorCraft for HSK Patching-->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		
+			<!-- Checking for SRTS Expanded: RotorCraft -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>SRTS Expanded: RotorCraft</li>
+				</mods>
+			</li>
+
+			<!-- Patch building cost and stats for RCDogfish -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCDogfish"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>200</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCDogfish"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>200</Plasteel> -->
+						<ComponentIndustrial>15</ComponentIndustrial>
+						<Mechanism>8</Mechanism>
+						<ElectronicComponents>2</ElectronicComponents>
+						<Glass>15</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCDogfish"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+			
+			<!-- Patch building cost and stats for RCThrasher -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCThrasher"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>220</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCThrasher"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>220</Plasteel> -->
+						<ComponentIndustrial>17</ComponentIndustrial>
+						<Mechanism>10</Mechanism>
+						<ElectronicComponents>2</ElectronicComponents>
+						<Glass>15</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCThrasher"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+			<!-- Patch building cost and stats for RCCookiecutter -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCCookiecutter"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>320</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCCookiecutter"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>320</Plasteel> -->
+						<ComponentIndustrial>20</ComponentIndustrial>
+						<Mechanism>14</Mechanism>
+						<ElectronicComponents>2</ElectronicComponents>
+						<Glass>20</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCCookiecutter"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+			<!-- Patch building cost and stats for RCRequiem -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCRequiem"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>340</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCRequiem"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>340</Plasteel> -->
+						<ComponentIndustrial>24</ComponentIndustrial>
+						<Mechanism>16</Mechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Glass>20</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCRequiem"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+			<!-- Patch building cost and stats for RCBull -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCBull"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>300</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCBull"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>300</Plasteel> -->
+						<ComponentIndustrial>24</ComponentIndustrial>
+						<Mechanism>18</Mechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Glass>25</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCBull"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+			<!-- Patch building cost and stats for RCHip (probably not ingame) -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCHip"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>420</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCHip"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>420</Plasteel> -->
+						<ComponentIndustrial>30</ComponentIndustrial>
+						<Mechanism>22</Mechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Glass>30</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCHip"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+			<!-- Patch building cost and stats for RCSandbar -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCSandbar"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>380</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCSandbar"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>380</Plasteel> -->
+						<ComponentIndustrial>28</ComponentIndustrial>
+						<Mechanism>20</Mechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Glass>30</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCSandbar"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+			<!-- Patch building cost and stats for RCMako -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCMako"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>360</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCMako"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>360</Plasteel> -->
+						<ComponentIndustrial>26</ComponentIndustrial>
+						<Mechanism>16</Mechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Glass>30</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCMako"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+			<!-- Patch building cost and stats for RCTiger -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCTiger"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>340</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCTiger"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>340</Plasteel> -->
+						<ComponentIndustrial>26</ComponentIndustrial>
+						<Mechanism>18</Mechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Electronics>2</Electronics>
+						<Glass>30</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCTiger"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+			<!-- Patch building cost and stats for RCMegamouth -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/ThingDef[defName = "RCMegamouth"]/statBases</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+					<costStuffCount>580</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCMegamouth"]/costList</xpath>
+				<value>
+					<costList> <!-- Costs to build, the names are the defNames of items -->
+						<!-- <Plasteel>580</Plasteel> -->
+						<ComponentIndustrial>38</ComponentIndustrial>
+						<Mechanism>24</Mechanism>
+						<ElectronicComponents>4</ElectronicComponents>
+						<Electronics>2</Electronics>
+						<Glass>35</Glass>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "RCMegamouth"]/comps/li/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>0</initialFuelPercent>
+				</value>
+			</li>
+
+		</operations>
+	</Operation>
+  
+</Patch>

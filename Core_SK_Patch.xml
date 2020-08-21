@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Core SK Config Patching -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+
+			<!-- Checking for Core_SK -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Core SK</li>
+				</mods>
+			</li>
+		
+			<!-- Patch chances to instant destroy ammo while looting -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/SK.Config[defName = "Config"]/ChanceToInstantDestroyAmmo</xpath>
+				<success>Normal</success>
+				<value>
+					<ChanceToInstantDestroyAmmo>0</ChanceToInstantDestroyAmmo>
+				</value>
+			</li>
+			
+			<!-- Patch chances to instant destroy item (weapon) while looting -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/SK.Config[defName = "Config"]/ChanceToInstantDestroyEnemyItem</xpath>
+				<success>Normal</success>
+				<value>
+					<ChanceToInstantDestroyEnemyItem>0</ChanceToInstantDestroyEnemyItem>
+				</value>
+			</li>
+		
+			<!-- Patch chances to damage looted item by deterioration -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/SK.Config[defName = "Config"]/ChanceToDamageEnemyItem</xpath>
+				<success>Normal</success>
+				<value>
+					<ChanceToDamageEnemyItem>0</ChanceToDamageEnemyItem>
+				</value>
+			</li>
+		
+		</operations>
+	</Operation>
+
+	<!-- Core SK Buildings Patching -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+
+			<!-- Checking for Core_SK -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Core SK</li>
+				</mods>
+			</li>
+		
+			<!-- Patch description and power consumption of Vanilla Lighting -->
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "StandingLamp"]/description</xpath>
+				<value>
+					<description>A standing lamp that lights an area. Requires 14 W.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "StandingLamp_Red"]/description</xpath>
+				<value>
+					<description>A standing lamp that lights an area in a red glow. Requires 14 W.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "StandingLamp_Green"]/description</xpath>
+				<value>
+					<description>A standing lamp that lights an area in a green glow. Requires 14 W.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "StandingLamp_Blue"]/description</xpath>
+				<value>
+					<description>A standing lamp that lights an area in blue glow. Requires 14 W.</description>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "StandingLamp" or defName = "StandingLamp_Red" or defName = "StandingLamp_Green" or defName = "StandingLamp_Blue"]/comps/li/basePowerConsumption</xpath>
+				<value>
+					<basePowerConsumption>14</basePowerConsumption>
+				</value>
+			</li>
+			
+			<!-- Patch description and power consumption of Lamps -->
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "ClutterFloorLampA"]/description</xpath>
+				<value>
+					<description>People need light to move and work at full speed. Requires 14 W.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "ClutterFloorLampA"]/comps/li/basePowerConsumption</xpath>
+				<value>
+					<basePowerConsumption>14</basePowerConsumption>
+				</value>
+			</li>
+			
+			<!-- Patch description and power consumption of Ceiling Lights -->
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "CeilingLamp"]/description</xpath>
+				<value>
+					<description>People need light to move and work at full speed. Requires 10 W.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "CeilingLamp"]/comps/li/basePowerConsumption</xpath>
+				<value>
+					<basePowerConsumption>10</basePowerConsumption>
+				</value>
+			</li>
+			
+			<!-- Patch description and power consumption of OutdoorLights -->
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "WallLamp"]/description</xpath>
+				<value>
+					<description>A lamp that must be placed against a supporting wall. People need light to move and work at full speed. Requires 10 W. It has a bigger glow than most lights.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "WallLamp"]/comps/li/basePowerConsumption</xpath>
+				<value>
+					<basePowerConsumption>10</basePowerConsumption>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "Lighting_WallLight"]/description</xpath>
+				<value>
+					<description>A small light that must be placed on a supporting wall. People need light to move and work at full speed. Requires 8 W.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "Lighting_WallLight"]/comps/li/basePowerConsumption</xpath>
+				<value>
+					<basePowerConsumption>8</basePowerConsumption>
+				</value>
+			</li>
+
+			<!-- Patch description and power consumption of SQUARE FLOOR LIGHTS -->
+
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "FloorLightSquare"]/description</xpath>
+				<value>
+					<description>A square floor light integrated into the ground with a white lamp. People need light to move and work at full speed. Waterproof and quite pretty. Requires 4 W.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "FloorLightSquare_Red"]/description</xpath>
+				<value>
+					<description>A square floor light integraded into the ground with a red lamp. People need light to move and work at full speed. Waterproof and quite pretty. Requires 4 W.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "FloorLightSquare_Green"]/description</xpath>
+				<value>
+					<description>A square floor light integrated into the ground with a green lamp. People need light to move and work at full speed. Waterproof and quite pretty. Requires 4 W.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "FloorLightSquare_Blue"]/description</xpath>
+				<value>
+					<description>A square floor light integrated into the ground with a blue lamp. People need light to move and work at full speed. Requires 4 W.</description>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "FloorLightSquare" or defName = "FloorLightSquare_Red" or defName = "FloorLightSquare_Green" or defName = "FloorLightSquare_Blue"]/comps/li/basePowerConsumption</xpath>
+				<value>
+					<basePowerConsumption>4</basePowerConsumption>
+				</value>
+			</li>
+			
+		</operations>
+	</Operation>
+ 
+	<!-- Core SK Adding Concrete Bridge -->
+	
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+
+			<!-- Checking for Core_SK -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Core SK</li>
+				</mods>
+			</li>
+
+			<!-- Add TerrainAffordanceDef -->
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/TerrainAffordanceDef[defName = "Undefined"]</xpath>
+				<value>
+					<TerrainAffordanceDef>
+						<defName>BridgeableAny</defName>
+						<label>bridgeable any</label>
+						<order>2600</order>
+					</TerrainAffordanceDef>
+				</value>
+			</li>
+
+			<!-- Change Vanilla Deep water -->
+			<li Class="PatchOperationRemove">
+				<success>Normal</success>
+				<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/changeable</xpath>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/affordances</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]</xpath>
+					<value>
+						<affordances>
+							<li>BridgeableAny</li>
+						</affordances>
+					</value>
+				</nomatch>
+				<match Class="PatchOperationAdd">
+					<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/affordances</xpath>
+					<value>
+						<li>BridgeableAny</li>
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>/Defs/TerrainDef[@Name="WaterChestDeepBase"]/affordances</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>/Defs/TerrainDef[@Name="WaterChestDeepBase"]</xpath>
+					<value>
+						<affordances>
+							<li>BridgeableAny</li>
+						</affordances>
+					</value>
+				</nomatch>
+				<match Class="PatchOperationAdd">
+					<xpath>/Defs/TerrainDef[@Name="WaterChestDeepBase"]/affordances</xpath>
+					<value>
+						<li>BridgeableAny</li>
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>/Defs/TerrainDef[@Name="WaterShallowBase"]/affordances</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>/Defs/TerrainDef[@Name="WaterShallowBase"]</xpath>
+					<value>
+						<affordances>
+							<li>BridgeableAny</li>
+						</affordances>
+					</value>
+				</nomatch>
+				<match Class="PatchOperationAdd">
+					<xpath>/Defs/TerrainDef[@Name="WaterShallowBase"]/affordances</xpath>
+					<value>
+						<li>BridgeableAny</li>
+					</value>
+				</match>
+			</li>
+			
+			<!-- Add Concrete bridge -->
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/TerrainDef[defName = "Bridge"]</xpath>
+				<value>
+					<TerrainDef>
+						<defName>ConcreteBridge</defName>
+						<label>concrete bridge</label>
+						<description>A concrete bridge to be built over water. Heavy structures can be built on these bridges, but they can still be destroyed. If a bridge falls, buildings on top of it fall as well.</description>
+						<texturePath>Terrain/Surfaces/AsphaltRecent</texturePath> <!-- TO CHANGE -->
+						<uiIconPath>Terrain/Surfaces/ConcreteBridge_MenuIcon</uiIconPath>
+						<color>(128,128,128)</color> <!-- LIGHTER COLOUR-->
+						<layerable>true</layerable>
+						<affordances>
+							<li>Light</li>
+							<li>Medium</li>
+							<li>Heavy</li>
+						</affordances>
+						<designationCategory>Structure</designationCategory>
+						<fertility>0</fertility>
+						<constructEffect>ConstructMetal</constructEffect>
+						<terrainAffordanceNeeded>BridgeableAny</terrainAffordanceNeeded>
+						<edgeType>Hard</edgeType>
+						<renderPrecedence>400</renderPrecedence>
+						<statBases>
+							<WorkToBuild>4500</WorkToBuild>
+							<Flammability>0.1</Flammability>
+						</statBases>
+						<costList>
+							<Plasteel>10</Plasteel>
+							<ConcreteResource>10</ConcreteResource>	
+						</costList>
+						<destroyOnBombDamageThreshold>105</destroyOnBombDamageThreshold>
+						<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+						<destroyEffect>Bridge_Collapse</destroyEffect>
+						<destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+						<researchPrerequisites>
+							<li>SK_Bridges</li>
+						</researchPrerequisites>
+						<!--
+						<filthAcceptanceMask>
+							<li>Terrain</li>
+							<li>Unnatural</li>
+							<li>Natural</li>
+						</filthAcceptanceMask>
+						<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+						-->
+					</TerrainDef>
+				</value>
+			</li>
+			
+		</operations>
+	</Operation>
+	
+</Patch>
