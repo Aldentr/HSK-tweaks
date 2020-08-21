@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Core SK Changing stats from "Roads of the Rim" or Adding Concrete Bridge from mod-->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+
+			<!-- Checking for Core_SK -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Core SK</li>
+				</mods>
+			</li>
+
+			<!-- Do changes according to the "Roads of the Rim" mod precence -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Roads of the Rim</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Normal</success>
+					<operations>
+					
+					<!-- Patch stats for road packgages -->
+		
+						<!-- Patch building cost for ISR2G -->
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/ThingDef[defName = "RotR_ISR2GNew"]/costList</xpath>
+							<value>
+								<costList>
+									<Plasteel>120</Plasteel>
+									<ComponentIndustrial>10</ComponentIndustrial>
+								</costList>
+							</value>
+						</li>
+			
+						<!-- Patch building cost for AISR2G -->
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/ThingDef[defName = "RotR_AISR2GNew"]/costList</xpath>
+							<value>
+								<costList>
+									<Plasteel>120</Plasteel>
+									<ComponentIndustrial>12</ComponentIndustrial>
+									<!-- <Plasteel>70</Plasteel> -->
+									<ComponentSpacer>8</ComponentSpacer>
+								</costList>
+							</value>
+						</li>
+		
+						<!-- Patch building cost for AISR2G Building Base -->
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/ThingDef[defName = "RotR_AISR2G"]/costList</xpath>
+							<value>
+								<costList>
+									<Plasteel>320</Plasteel>
+									<ComponentIndustrial>8</ComponentIndustrial>
+									<!-- <Plasteel>290</Plasteel> -->
+									<ComponentSpacer>14</ComponentSpacer>
+								</costList>
+							</value>
+						</li>
+		
+					<!-- Patch stats for roads -->
+					
+						<!-- Patch building cost for Stone road -->
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/RoadsOfTheRim.RoadBuildableDef[defName = "RoadsOfTheRim_StoneRoad"]/steel</xpath>
+							<value>
+								<Plasteel>300</Plasteel>	<!-- was <steel>300</steel> -->
+							</value>
+						</li>
+					
+						<!-- Patch building cost for Asphalt road -->
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/RoadsOfTheRim.RoadBuildableDef[defName = "RoadsOfTheRim_AsphaltRoad"]/steel</xpath>
+							<value>
+								<Plasteel>600</Plasteel>	<!-- was <steel>600</steel> -->
+							</value>
+						</li>
+						
+					<!-- Patch stats for bridges -->
+					
+						<!-- Patch building cost for concrete bridge -->
+						<li Class="PatchOperationInsert">
+							<xpath>Defs/TerrainDef[defName = "ConcreteBridge"]/statBases</xpath>
+							<value>
+								<stuffCategories>
+									<li>Metallic</li>
+								</stuffCategories>
+								<costStuffCount>10</costStuffCount>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/TerrainDef[defName = "ConcreteBridge"]/costList</xpath>
+							<value>
+								<costList>
+									<ConcreteResource>10</ConcreteResource> <!-- was <Steel>25</Steel> -->
+								</costList>
+							</value>
+						</li>
+						
+						<!-- Patch research prerequisites for concrete bridge -->
+						<li Class="PatchOperationInsert">
+							<xpath>Defs/TerrainDef[defName = "ConcreteBridge"]/costList</xpath>
+							<value>
+								<researchPrerequisites>
+									<li>SK_Bridges</li>
+								</researchPrerequisites>
+							</value>
+						</li>
+					
+					</operations>
+				</match>
+				<nomatch Class="PatchOperationSequence">
+					<success>Normal</success>
+					<operations>
+
+					<!-- Add Concrete bridge to HSK -->
+
+						<!-- Add TerrainAffordanceDef -->
+						<li Class="PatchOperationInsert">
+							<xpath>Defs/TerrainAffordanceDef[defName = "Undefined"]</xpath>
+							<value>
+								<TerrainAffordanceDef>
+									<defName>BridgeableAny</defName>
+									<label>bridgeable any</label>
+									<order>2600</order>
+								</TerrainAffordanceDef>
+							</value>
+						</li>
+
+						<!-- Change Vanilla Deep water -->
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/changeable</xpath>
+						</li>
+						<li Class="PatchOperationConditional">
+							<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/affordances</xpath>
+							<nomatch Class="PatchOperationAdd">
+								<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]</xpath>
+								<value>
+									<affordances>
+										<li>BridgeableAny</li>
+									</affordances>
+								</value>
+							</nomatch>
+							<match Class="PatchOperationAdd">
+								<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/affordances</xpath>
+								<value>
+									<li>BridgeableAny</li>
+								</value>
+							</match>
+						</li>
+						<li Class="PatchOperationConditional">
+							<xpath>/Defs/TerrainDef[@Name="WaterChestDeepBase"]/affordances</xpath>
+							<nomatch Class="PatchOperationAdd">
+								<xpath>/Defs/TerrainDef[@Name="WaterChestDeepBase"]</xpath>
+								<value>
+									<affordances>
+										<li>BridgeableAny</li>
+									</affordances>
+								</value>
+							</nomatch>
+							<match Class="PatchOperationAdd">
+								<xpath>/Defs/TerrainDef[@Name="WaterChestDeepBase"]/affordances</xpath>
+								<value>
+									<li>BridgeableAny</li>
+								</value>
+							</match>
+						</li>
+						<li Class="PatchOperationConditional">
+							<xpath>/Defs/TerrainDef[@Name="WaterShallowBase"]/affordances</xpath>
+							<nomatch Class="PatchOperationAdd">
+								<xpath>/Defs/TerrainDef[@Name="WaterShallowBase"]</xpath>
+								<value>
+									<affordances>
+										<li>BridgeableAny</li>
+									</affordances>
+								</value>
+							</nomatch>
+							<match Class="PatchOperationAdd">
+								<xpath>/Defs/TerrainDef[@Name="WaterShallowBase"]/affordances</xpath>
+								<value>
+									<li>BridgeableAny</li>
+								</value>
+							</match>
+						</li>
+						
+						<!-- Add Concrete bridge -->
+						<li Class="PatchOperationInsert">
+							<xpath>/Defs/TerrainDef[defName = "Bridge"]</xpath>
+							<value>
+								<TerrainDef>
+									<defName>ConcreteBridge</defName>
+									<label>concrete bridge</label>
+									<description>A concrete bridge to be built over water. Heavy structures can be built on these bridges, but they can still be destroyed. If a bridge falls, buildings on top of it fall as well.</description>
+									<texturePath>Terrain/Surfaces/AsphaltRecent</texturePath> <!-- TO CHANGE -->
+									<uiIconPath>Terrain/Surfaces/ConcreteBridge_MenuIcon</uiIconPath>
+									<color>(128,128,128)</color> <!-- LIGHTER COLOUR-->
+									<layerable>true</layerable>
+									<affordances>
+										<li>Light</li>
+										<li>Medium</li>
+										<li>Heavy</li>
+									</affordances>
+									<designationCategory>Structure</designationCategory>
+									<fertility>0</fertility>
+									<constructEffect>ConstructMetal</constructEffect>
+									<terrainAffordanceNeeded>BridgeableAny</terrainAffordanceNeeded>
+									<edgeType>Hard</edgeType>
+									<renderPrecedence>400</renderPrecedence>
+									<statBases>
+										<WorkToBuild>4500</WorkToBuild>
+										<Flammability>0.1</Flammability>
+									</statBases>
+									<stuffCategories>
+										<li>Metallic</li>
+									</stuffCategories>
+									<costStuffCount>10</costStuffCount>									
+									<costList>
+										<ConcreteResource>10</ConcreteResource>	
+									</costList>
+									<destroyOnBombDamageThreshold>105</destroyOnBombDamageThreshold>
+									<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+									<destroyEffect>Bridge_Collapse</destroyEffect>
+									<destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+									<researchPrerequisites>
+										<li>SK_Bridges</li>
+									</researchPrerequisites>
+									<!--
+									<filthAcceptanceMask>
+										<li>Terrain</li>
+										<li>Unnatural</li>
+										<li>Natural</li>
+									</filthAcceptanceMask>
+									<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+									-->
+								</TerrainDef>
+							</value>
+						</li>
+					
+					</operations>
+				</nomatch>
+			</li>
+		
+		</operations>
+	</Operation>
+	
+</Patch>

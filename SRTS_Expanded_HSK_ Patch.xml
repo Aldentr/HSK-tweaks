@@ -330,5 +330,39 @@
 
 		</operations>
 	</Operation>
-  
+
+	<!-- SRTS Expanded for HSK Patching-->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+		
+			<!-- Checking for SRTS Expanded -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>SRTS Expanded</li>
+				</mods>
+			</li>
+
+			<!-- Patch research prerequisites -->
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ResearchProjectDef[defName = "Research_SRAF"]/prerequisites[li = "Fabrication"] and Defs/ResearchProjectDef[defName = "Research_SRTSMkII"]/prerequisites[li = "Fabrication"]</xpath>
+			</li>
+			
+			
+<!-- 			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ResearchProjectDef[defName = "Research_WeaponisedRotor"]/prerequisites</xpath>
+				<value>
+					<prerequisites>
+						<li>Research_Rotorcraft</li>
+						<li>GasOperation</li>
+					</prerequisites>
+				</value>
+			</li>
+ -->
+
+		</operations>
+	</Operation>
+	
 </Patch>
