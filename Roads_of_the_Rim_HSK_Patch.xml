@@ -14,7 +14,7 @@
 				</mods>
 			</li>
 
-			<!-- Do changes according to the "Roads of the Rim" mod precence -->
+			<!-- Do changes according to the "Roads of the Rim" mod presence -->
 			<li Class="PatchOperationFindMod">
 				<mods>
 					<li>Roads of the Rim</li>
