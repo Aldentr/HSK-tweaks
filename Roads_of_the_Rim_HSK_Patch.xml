@@ -83,6 +83,7 @@
 					<!-- Patch stats for bridges -->
 					
 						<!-- Patch building cost for concrete bridge -->
+						<!-- This feature spam errors in log, so i turn it off
 						<li Class="PatchOperationInsert">
 							<xpath>Defs/TerrainDef[defName = "ConcreteBridge"]/statBases</xpath>
 							<value>
@@ -92,10 +93,12 @@
 								<costStuffCount>10</costStuffCount>
 							</value>
 						</li>
+						-->
 						<li Class="PatchOperationReplace">
 							<xpath>Defs/TerrainDef[defName = "ConcreteBridge"]/costList</xpath>
 							<value>
 								<costList>
+									<Plasteel>10</Plasteel>
 									<ConcreteResource>10</ConcreteResource> <!-- was <Steel>25</Steel> -->
 								</costList>
 							</value>
@@ -152,6 +155,7 @@
 								</value>
 							</match>
 						</li>
+						<!--
 						<li Class="PatchOperationConditional">
 							<xpath>/Defs/TerrainDef[@Name="WaterChestDeepBase"]/affordances</xpath>
 							<nomatch Class="PatchOperationAdd">
@@ -186,6 +190,7 @@
 								</value>
 							</match>
 						</li>
+						-->
 						
 						<!-- Add Concrete bridge -->
 						<li Class="PatchOperationInsert">
@@ -214,12 +219,15 @@
 										<WorkToBuild>4500</WorkToBuild>
 										<Flammability>0.1</Flammability>
 									</statBases>
+									<!-- This feature spam errors in log, so i turn it off
 									<stuffCategories>
 										<li>Metallic</li>
 									</stuffCategories>
-									<costStuffCount>10</costStuffCount>									
+									<costStuffCount>10</costStuffCount>
+									-->
 									<costList>
-										<ConcreteResource>10</ConcreteResource>	
+										<Plasteel>10</Plasteel>
+										<ConcreteResource>10</ConcreteResource> <!-- was <Steel>25</Steel> -->
 									</costList>
 									<destroyOnBombDamageThreshold>105</destroyOnBombDamageThreshold>
 									<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
